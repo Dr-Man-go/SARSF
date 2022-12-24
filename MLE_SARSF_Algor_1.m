@@ -1,6 +1,6 @@
 function Theta_MLE = MLE_SARSF_Algor_1(W, Theta, X, Y, Precision)
 Lambda = Theta(1);
-lower  = max(-0.8, Lambda-0.3);upper = min(0.8, Lambda+0.3); options.Display='off'; 
+lower  = max(-1, Lambda-0.3);upper = min(1, Lambda+0.3); options.Display='off'; 
 options.MaxFunEvals=1000; options.MaxIter=1000;  options.TolX=0.001; options.TolFun=0.001;
 Lambda_opt =  fminbnd(@MLE_SARSF_concentrate,lower,upper,options, W, X, Y, Precision);
 Theta_MLE = T_MLE_SARSF_Algor_1(W, [Lambda_opt;zeros(5,1)], X, Y, Precision);
